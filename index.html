@@ -5,6 +5,11 @@
     <meta charset="utf-8"/>
 
     <style>
+        body {
+            background-image: url("/images/petit_prince.jpg");
+            background-size: cover;
+        }
+
         .container {
             display: grid;
             place-items: center;
@@ -23,13 +28,16 @@
     <div class="container">
         <div class="center-div">
             <h1>Le petit Prince</h1>
-            <div id="timer">60</div>
+            <div id="timer">3:00</div>
         </div>
     </div>
 
     <script>
         // Set the initial time in seconds
         let time = 3 * 60
+
+        // pad with 0
+        const zeroPad = (num, places) => String(num).padStart(places, '0')
 
         // Function to update the timer display
         function updateTimer() {
@@ -38,7 +46,7 @@
 
             console.log(minutes)
 
-            timeLabel = minutes + ":" + seconds;            
+            timeLabel = minutes + ":" + zeroPad(seconds, 2);
 
             const timerElement = document.getElementById('timer');
             timerElement.textContent = timeLabel;
