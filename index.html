@@ -59,14 +59,18 @@
         // pad with 0
         const zeroPad = (num, places) => String(num).padStart(places, '0')
 
-        // Function to update the timer display
-        function updateTimer() {
+
+        function timeToLabel(time) {
             minutes = parseInt(time / 60);
             seconds = parseInt(time % 60);
 
-            console.log(minutes)
-
             timeLabel = minutes + ":" + zeroPad(seconds, 2);
+            return timeLabel
+        }
+
+        // Function to update the timer display
+        function updateTimer() {
+            timeLabel = timeToLabel(time)
 
             const timerElement = document.getElementById('timer');
             timerElement.textContent = timeLabel;
@@ -79,7 +83,7 @@
             document.body.style.backgroundSize = 'cover'
 
             document.getElementById('text').textContent = text;
-            document.getElementById('timer').textContent = '3:00';
+            document.getElementById('timer').textContent = timeToLabel(TIMESLOT);
         }
 
         // Function to count down the timer
