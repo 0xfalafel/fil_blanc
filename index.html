@@ -6,8 +6,16 @@
 
     <style>
         body {
+            /* Background */
             background-image: url("/images/petit_prince.jpg");
             background-size: cover;
+
+            /* Font */
+            font-family:"Roboto Medium", sans-serif;
+            font-size:60px;
+            -webkit-text-stroke: 2px black;
+            line-height:1;
+            color: white;
         }
 
         .container {
@@ -17,8 +25,13 @@
         }
         
         .center-div {
-            width: 50%; /* Set a specific width */
+            width: 80%; /* Set a specific width */
             text-align: center;
+        }
+
+        #timer {
+            color: azure;
+            font-size: 140px;
         }
     </style>
 
@@ -33,8 +46,9 @@
     </div>
 
     <script>
+
         // Set the initial time in seconds
-        let time = 3 * 60
+        let time = 3 * 60;
 
         // pad with 0
         const zeroPad = (num, places) => String(num).padStart(places, '0')
@@ -57,7 +71,7 @@
         function countdown() {
             if (time <= 0) {
                 clearInterval(timerInterval);
-                alert("Time's up!");
+                alert("C'est fini !");
             } else { 
                 time--;
                 updateTimer();
