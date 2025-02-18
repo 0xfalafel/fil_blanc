@@ -29,21 +29,29 @@
 
     <script>
         // Set the initial time in seconds
-        let timeLeft = 60;
+        let time = 3 * 60
 
         // Function to update the timer display
         function updateTimer() {
+            minutes = parseInt(time / 60);
+            seconds = parseInt(time % 60);
+
+            console.log(minutes)
+
+            timeLabel = minutes + ":" + seconds;            
+
             const timerElement = document.getElementById('timer');
-            timerElement.textContent = timeLeft;
+            timerElement.textContent = timeLabel;
+            console.log("end:", timeLabel)
         }
 
         // Function to count down the timer
         function countdown() {
-            if (timeLeft <= 0) {
+            if (time <= 0) {
                 clearInterval(timerInterval);
                 alert("Time's up!");
             } else { 
-                timeLeft--;
+                time--;
                 updateTimer();
             }
         }
