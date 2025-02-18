@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+    <title>Fils Blanc 🧵</title>
+    <meta charset="utf-8"/>
+
+    <style>
+        .container {
+            display: grid;
+            place-items: center;
+            height: 100vh; /* Full viewport height */
+        }
+        
+        .center-div {
+            width: 50%; /* Set a specific width */
+            text-align: center;
+        }
+    </style>
+
+</html>
+
+<body>
+    <div class="container">
+        <div class="center-div">
+            <h1>Le petit Prince</h1>
+            <div id="timer">60</div>
+        </div>
+    </div>
+
+    <script>
+        // Set the initial time in seconds
+        let timeLeft = 60;
+
+        // Function to update the timer display
+        function updateTimer() {
+            const timerElement = document.getElementById('timer');
+            timerElement.textContent = timeLeft;
+        }
+
+        // Function to count down the timer
+        function countdown() {
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                alert("Time's up!");
+            } else { 
+                timeLeft--;
+                updateTimer();
+            }
+        }
+
+        // Update the timer display initially
+        updateTimer();
+
+        // Set an interval to count down every second
+        const timerInterval = setInterval(countdown, 1000);
+    </script>
+</body>

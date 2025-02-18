@@ -1,0 +1,9 @@
+.container {
+    display: grid;
+    place-items: center;
+    height: 100vh; /* Full viewport height */
+  }
+  
+  .center-div {
+    width: 50%; /* Set a specific width */
+  }
