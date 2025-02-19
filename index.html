@@ -47,10 +47,15 @@
 
     <script>
         let imaginaire = [
-                ["La mer", "mer.jpg"]
+                /*
+                    Voyage à travers les livre,
+                */
+                ["La mer", "mer.jpg"],
+                ["La nature", "nature2.jpg"],
+                ["Roadtrip\navec Jésus", "roadtrip2.jpg"],
         ]
 
-        let TIMESLOT = 4;
+        let TIMESLOT = 2*60;
 
 
         // Set the initial time in seconds
@@ -89,13 +94,18 @@
         // Function to count down the timer
         function countdown() {
             if (time <= 0) {
-                [text, back_ground] = imaginaire.pop();
-                setImaginaire(text, back_ground);
 
-                time = TIMESLOT;
-
-                // clearInterval(timerInterval); // remove countdown
-                // alert("C'est fini !");
+                // Change imaginaire
+                if (imaginaire.length != 0) {
+                    [text, back_ground] = imaginaire.pop();
+                    setImaginaire(text, back_ground);                    
+                    time = TIMESLOT;
+                
+                // C'est fini!
+                } else {
+                    document.getElementById('timer').hidden = true;
+                    setImaginaire("C'est fini !", "end.jpg")
+                }
             } else { 
                 time--;
                 updateTimer();
